@@ -1,1 +1,267 @@
-<!doctype html><html><body><app-root></app-root></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clint Collaboration Workspace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="workspace-drawer" aria-label="Workspace switcher">
+        <button class="workspace-logo" aria-label="Clint workspace">C</button>
+        <div class="workspace-list" role="navigation">
+          <button class="workspace-pill is-active" aria-label="Clint product team">
+            CP
+          </button>
+          <button class="workspace-pill" aria-label="Marketing workspace">MK</button>
+          <button class="workspace-pill" aria-label="Operations workspace">OP</button>
+        </div>
+        <button class="workspace-add" aria-label="Add workspace">+</button>
+      </aside>
+
+      <aside class="channel-sidebar" aria-label="Channel navigator">
+        <header class="sidebar-header">
+          <div>
+            <h1 class="workspace-title">Clint</h1>
+            <p class="workspace-subtitle">Product Design Hub</p>
+          </div>
+          <button class="sidebar-icon-button" aria-label="Compose new message">
+            <span aria-hidden="true">✉️</span>
+          </button>
+        </header>
+        <div class="sidebar-search">
+          <input
+            type="search"
+            placeholder="Find or start a conversation"
+            aria-label="Search channels"
+          />
+        </div>
+        <nav class="sidebar-section" aria-label="Starred">
+          <h2 class="sidebar-section-title">Starred</h2>
+          <ul class="sidebar-list">
+            <li><a href="#"># roadmap</a></li>
+            <li><a href="#"># ux-research</a></li>
+          </ul>
+        </nav>
+        <nav class="sidebar-section" aria-label="Channels">
+          <h2 class="sidebar-section-title">Channels</h2>
+          <ul class="sidebar-list">
+            <li class="is-active">
+              <a href="#"><span aria-hidden="true">#</span> general</a>
+            </li>
+            <li><a href="#"><span aria-hidden="true">#</span> product-daily</a></li>
+            <li><a href="#"><span aria-hidden="true">#</span> design-review</a></li>
+            <li><a href="#"><span aria-hidden="true">#</span> release-notes</a></li>
+          </ul>
+        </nav>
+        <nav class="sidebar-section" aria-label="Direct messages">
+          <h2 class="sidebar-section-title">Direct messages</h2>
+          <ul class="sidebar-list">
+            <li><a href="#">Alma H.</a></li>
+            <li><a href="#">Ravi P.</a></li>
+            <li><a href="#">Bruno S.</a></li>
+            <li><a href="#">You</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-panel">
+        <header class="channel-toolbar">
+          <div class="channel-info">
+            <div class="channel-name"># general</div>
+            <div class="channel-description">Company-wide updates and announcements</div>
+          </div>
+          <div class="channel-actions">
+            <button class="channel-action-button" aria-label="View channel details">
+              <span aria-hidden="true">ℹ️</span>
+            </button>
+            <button class="channel-action-button" aria-label="Start a huddle">
+              <span aria-hidden="true">🎧</span>
+            </button>
+            <div class="channel-search">
+              <input type="search" placeholder="Search in #general" aria-label="Search in channel" />
+            </div>
+          </div>
+        </header>
+
+        <section class="channel-body" aria-live="polite">
+          <div class="channel-day-divider" role="separator">Today</div>
+
+          <article class="message-item">
+            <img class="message-avatar" src="https://i.pravatar.cc/48?img=5" alt="Avatar of Alma" />
+            <div class="message-content">
+              <header class="message-meta">
+                <span class="message-author">Alma H.</span>
+                <time class="message-time" datetime="2024-08-15T09:24">9:24 AM</time>
+              </header>
+              <p class="message-text">
+                Morning team! I dropped the new onboarding flow prototype in <strong>#design-review</strong>.
+                Would love async feedback by tomorrow so we can prep for Clint's leadership demo.
+              </p>
+              <footer class="message-reactions">
+                <button type="button" aria-label="Add reaction">👍 12</button>
+                <button type="button" aria-label="Add reaction">💡 4</button>
+                <button type="button" aria-label="Open thread">Reply in thread</button>
+              </footer>
+            </div>
+          </article>
+
+          <article class="message-item">
+            <img class="message-avatar" src="https://i.pravatar.cc/48?img=12" alt="Avatar of Ravi" />
+            <div class="message-content">
+              <header class="message-meta">
+                <span class="message-author">Ravi P.</span>
+                <time class="message-time" datetime="2024-08-15T10:02">10:02 AM</time>
+              </header>
+              <p class="message-text">
+                Thanks Alma! I reviewed the flow and it aligns nicely with Clint's accessibility
+                checklist. I'll prepare the KPI snapshot for the demo brief this afternoon.
+              </p>
+              <footer class="message-reactions">
+                <button type="button" aria-label="Add reaction">🙌 6</button>
+                <button type="button" aria-label="Add reaction">✅ 2</button>
+              </footer>
+            </div>
+          </article>
+
+          <article class="message-item">
+            <img class="message-avatar" src="https://i.pravatar.cc/48?img=32" alt="Avatar of Bruno" />
+            <div class="message-content">
+              <header class="message-meta">
+                <span class="message-author">Bruno S.</span>
+                <time class="message-time" datetime="2024-08-15T10:45">10:45 AM</time>
+              </header>
+              <p class="message-text">
+                Reminder: please update your sections in the Clint brand guideline doc before EOD. We
+                want the slides to feel as polished as the Slack reference.
+              </p>
+              <footer class="message-reactions">
+                <button type="button" aria-label="Add reaction">📝 3</button>
+                <button type="button" aria-label="Add reaction">❤️ 1</button>
+              </footer>
+            </div>
+          </article>
+        </section>
+
+        <footer class="message-composer" aria-label="Message composer">
+          <div class="composer-toolbar">
+            <button type="button" aria-label="Add file">📎</button>
+            <button type="button" aria-label="Insert shortcut">⚡️</button>
+            <button type="button" aria-label="Mention someone">@</button>
+            <button type="button" aria-label="Upload media">📷</button>
+          </div>
+          <textarea
+            id="message-input"
+            rows="1"
+            placeholder="Message #general"
+            aria-label="Write a message"
+          ></textarea>
+          <div class="composer-actions">
+            <div class="composer-formatting">
+              <button type="button" aria-label="Toggle formatting">A</button>
+              <button type="button" aria-label="Choose emoji">😊</button>
+              <button type="button" aria-label="Create poll">📊</button>
+            </div>
+            <button type="button" class="send-button" id="send-button">Send</button>
+          </div>
+        </footer>
+      </main>
+
+      <aside class="context-sidebar" aria-label="Channel details">
+        <section class="context-section">
+          <h2>About #general</h2>
+          <p>
+            Central hub for Clint announcements, launch checklists, and cross-team updates. Everyone in the
+            workspace has access.
+          </p>
+        </section>
+        <section class="context-section">
+          <h3>Highlights</h3>
+          <ul>
+            <li>Quarterly roadmap review Friday @ 11:00</li>
+            <li>Client feedback summary shared every Monday</li>
+            <li>Design QA sign-offs due by 5 PM daily</li>
+          </ul>
+        </section>
+        <section class="context-section">
+          <h3>Pinned files</h3>
+          <div class="context-card">
+            <span class="context-card-icon">📄</span>
+            <div>
+              <p class="context-card-title">Clint Brand Toolkit.pdf</p>
+              <p class="context-card-meta">Updated yesterday by Alma</p>
+            </div>
+          </div>
+          <div class="context-card">
+            <span class="context-card-icon">🗂️</span>
+            <div>
+              <p class="context-card-title">Launch Readiness Checklist</p>
+              <p class="context-card-meta">Shared in #product-daily</p>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <script>
+      const messageInput = document.getElementById('message-input');
+      const sendButton = document.getElementById('send-button');
+      const channelBody = document.querySelector('.channel-body');
+
+      function appendMessage(text) {
+        if (!channelBody) return;
+        const article = document.createElement('article');
+        article.className = 'message-item is-self';
+        article.innerHTML = `
+          <img class="message-avatar" src="https://i.pravatar.cc/48?img=1" alt="Your avatar" />
+          <div class="message-content">
+            <header class="message-meta">
+              <span class="message-author">You</span>
+              <time class="message-time">Just now</time>
+            </header>
+            <p class="message-text"></p>
+          </div>
+        `;
+        const paragraph = article.querySelector('.message-text');
+        if (paragraph) {
+          paragraph.textContent = text;
+        }
+        channelBody.appendChild(article);
+        channelBody.scrollTo({ top: channelBody.scrollHeight, behavior: 'smooth' });
+      }
+
+      function handleSend() {
+        if (!(messageInput instanceof HTMLTextAreaElement)) return;
+        const value = messageInput.value.trim();
+        if (!value) return;
+        appendMessage(value);
+        messageInput.value = '';
+        messageInput.style.height = '';
+      }
+
+      if (messageInput instanceof HTMLTextAreaElement) {
+        messageInput.addEventListener('input', () => {
+          messageInput.style.height = 'auto';
+          messageInput.style.height = `${messageInput.scrollHeight}px`;
+        });
+        messageInput.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            handleSend();
+          }
+        });
+      }
+
+      if (sendButton instanceof HTMLButtonElement) {
+        sendButton.addEventListener('click', handleSend);
+      }
+    </script>
+  </body>
+</html>
