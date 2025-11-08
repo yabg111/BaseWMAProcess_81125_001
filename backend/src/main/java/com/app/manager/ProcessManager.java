@@ -2,7 +2,6 @@ package com.app.manager;
 import com.app.core.domain.BaseProcess;
 import com.app.workflow.CreateProcessWorkflow;
 import com.app.persistence.BaseProcessRepository;
-import org.springframework.stereotype.Service;
 /**
  * @purpose תזמור מקרה שימוש יחיד: יצירת תהליך ושמירתו.
  * @role Service/Use-Case.
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
  * @version 0.0.1
  * @created 2025_11_08
  */
-@Service
 public class ProcessManager {
   private final BaseProcessRepository repo;
   private final CreateProcessWorkflow workflow;
