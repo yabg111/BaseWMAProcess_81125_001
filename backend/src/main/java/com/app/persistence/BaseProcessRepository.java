@@ -18,12 +18,15 @@ public class BaseProcessRepository {
   private final Map<String, BaseProcess> processes = new ConcurrentHashMap<>();
 
   public BaseProcess save(BaseProcess process){
-    processes.put(process.getId(), process);
+    BaseProcess existing = processes.putIfAbsent(process.getProcessKey(), process);
+    if(existing != null){
+      throw new DuplicateProcessKeyException(process.getProcessKey());
+    }
     return process;
   }
 
   public Optional<BaseProcess> findByProcessKey(String processKey){
-    return processes.values().stream().filter(p -> p.getProcessKey().equals(processKey)).findFirst();
+    return Optional.ofNullable(processes.get(processKey));
   }
 
   public int count(){

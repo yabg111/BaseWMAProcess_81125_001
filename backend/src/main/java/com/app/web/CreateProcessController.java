@@ -2,6 +2,7 @@ package com.app.web;
 
 import com.app.manager.ProcessManager;
 import com.app.core.domain.BaseProcess;
+import com.app.persistence.DuplicateProcessKeyException;
 
 import java.nio.charset.StandardCharsets;
 
@@ -26,10 +27,15 @@ public class CreateProcessController {
     if(processKey == null || processKey.isBlank()){
       return jsonError(400, "processKey is required");
     }
-    BaseProcess process = manager.create(processKey);
-    byte[] payload = ("{\"id\":\"" + process.getId() + "\",\"processKey\":\"" + process.getProcessKey() + "\"}")
-        .getBytes(StandardCharsets.UTF_8);
-    return new HttpResponse(200, payload);
+
+    try {
+      BaseProcess process = manager.create(processKey);
+      byte[] payload = ("{\"id\":\"" + process.getId() + "\",\"processKey\":\"" + process.getProcessKey() + "\"}")
+          .getBytes(StandardCharsets.UTF_8);
+      return new HttpResponse(200, payload);
+    } catch (DuplicateProcessKeyException ex) {
+      return jsonError(409, ex.getMessage());
+    }
   }
 
   private String extractProcessKey(String body){
