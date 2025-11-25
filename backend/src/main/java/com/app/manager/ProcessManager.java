@@ -1,8 +1,10 @@
 package com.app.manager;
+
 import com.app.core.domain.BaseProcess;
 import com.app.workflow.CreateProcessWorkflow;
 import com.app.persistence.BaseProcessRepository;
 import org.springframework.stereotype.Service;
+
 /**
  * @purpose תזמור מקרה שימוש יחיד: יצירת תהליך ושמירתו.
  * @role Service/Use-Case.
@@ -12,9 +14,21 @@ import org.springframework.stereotype.Service;
  * @created 2025_11_08
  */
 @Service
-public class ProcessManager {
+public class ProcessManager implements Manager<String, BaseProcess> {
   private final BaseProcessRepository repo;
   private final CreateProcessWorkflow workflow;
-  public ProcessManager(BaseProcessRepository repo, CreateProcessWorkflow workflow){ this.repo=repo; this.workflow=workflow; }
-  public BaseProcess create(String processKey){ return repo.save(workflow.build(processKey)); }
+
+  public ProcessManager(BaseProcessRepository repo, CreateProcessWorkflow workflow) {
+    this.repo = repo;
+    this.workflow = workflow;
+  }
+
+  @Override
+  public BaseProcess handle(String processKey) {
+    return repo.save(workflow.build(processKey));
+  }
+
+  public BaseProcess create(String processKey) {
+    return handle(processKey);
+  }
 }
